@@ -18,7 +18,7 @@ function setHead() {
 }
 
 function addBody() {
-    document.body.insertAdjacentHTML('afterend', `
+    document.body.insertAdjacentHTML('beforeend', `
         <img src="${currentPage != 'home' ? '../' : './'}images/nyan-cat.gif" id="nyancat" />
         `);
 }
