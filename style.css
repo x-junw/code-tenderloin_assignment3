@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes inAndOut {
+    0% {
+        background-color: #2F5A7E00;
+    }
+    50% {
+        background-color: #2F5A7E80;
+    }
+    100% {
+        background-color: #2F5A7E00;
+    }
+}
+
+@keyframes flyAcross {
+    0% {
+        left: -27vw;
+    }
+    100% {
+        left: 110vw;
+    }
+}
+
+#nyancat {
+    position: fixed;
+    height: 20vh;
+    width: 20vw;
+    top: 42vh;
+    animation: flyAcross 3s infinite linear;
+}
+
+.selectedClass {
+    background-color: #2F5A7E80;
+    animation: inAndOut 3s infinite;
+    border-radius: 0.5dvw;
+    height: 3dvh;
+    width: 125%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+li:has(> .selectedClass)::after {
+    position: absolute;
+    left: 12.5%;
+    bottom: 20%;
+}
+
+body {
+    display: none;
+    margin: 0;
+    font-family: 'Lexend', sans-serif;
+    animation: fadeIn 0.3s;
+    background-color: var(--background, #FFFFFF);
+    overflow-x: hidden;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    height: 5dvh;
+    margin: 0;
+    font-size: 15px;
+    background-color: #222222;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    display: inline-block;
+    position: relative;
+}
+
+li::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0) translate(0, 2px);
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color, #FFFFFF);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+li:hover::after {
+    transform: scaleX(1) translate(0, 2px);
+    transform-origin: bottom left;
+}
