@@ -61,6 +61,7 @@ body {
     margin: 0;
     font-family: 'Lexend', sans-serif;
     animation: fadeIn 0.3s;
+    transition: ease-in 0.083s;
     background-color: var(--background, #FFFFFF);
     overflow-x: hidden;
 }

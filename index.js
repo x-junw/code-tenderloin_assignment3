@@ -19,8 +19,8 @@ function setHead() {
 
 function addBody() {
     document.body.insertAdjacentHTML('beforeend', `
-        <img src="${currentPage != 'home' ? '../' : './'}images/nyan-cat.gif" id="nyancat" />
-        `);
+        <img src="${currentPage != 'home' ? '../' : './'}images/nyan-cat.gif" id="nyancat" onclick="clickNyanCat()" />
+    `);
 }
 
 function addNav() {
@@ -53,4 +53,13 @@ function animateSelectedPage() {
     currentPage != 'home' && document.querySelector(`#${currentPage}`).classList.add(currentPage);
     document.querySelector(`.${currentPage}`).children[0].classList.add('selectedClass');
     document.body.style.setProperty('--background', currentPage);
+}
+
+async function clickNyanCat() {
+    const colorCycle = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+    for (let i = 0; i < (colorCycle.length * 4); i++) {
+        document.body.style.backgroundColor = colorCycle[i % 6];
+        await new Promise((resolve) => setTimeout(resolve, 83.333));
+    }
+    document.body.style.backgroundColor = currentPage != 'home' ? currentPage : '#FFFFFF';
 }
